@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Principal": {
+      "Federated": "arn:aws:iam::182298820607:oidc-provider/"
+    },
+    "Action": "sts:AssumeRoleWithWebIdentity",
+    "Condition": {
+      "StringEquals": {
+        ":sub": "system:serviceaccount:grafana:iamproxy-service-account"
+      }
+    }
+  },
+  {
+    "Effect": "Allow",
+    "Principal": {
+      "Federated": "arn:aws:iam::182298820607:oidc-provider/"
+    },
+    "Action": "sts:AssumeRoleWithWebIdentity",
+    "Condition": {
+      "StringEquals": {
+        ":sub": "system:serviceaccount:prometheus:iamproxy-service-account"
+      }
+    }
+  }
+]
+}
